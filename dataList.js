@@ -5,19 +5,27 @@ function getList() {
   return list;
 }
 
-function saveToList(number) {
+function saveList(number) {
   list.push(number);
 }
 
+function sortListA () {
+  var sortedList = getList();
+  sortedList.sort(function (a, b) {
+    return (a - b);
+  });
+  return sortedList;
+
+}
+
+
 
 module.exports = {
-  saveToList: saveToList,
+  saveToList: function (number) {
+    saveList(number),
+  },
   sortListAscending: function() {
-    var sortedList = getList();
-    sortedList.sort(function (a, b) {
-      return (a - b);
-    });
-    return sortedList;
+    sortedListA();
   },
   showList: function () {
     console.log(list);
